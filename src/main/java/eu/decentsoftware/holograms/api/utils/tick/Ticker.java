@@ -75,13 +75,13 @@ public class Ticker {
         synchronized (tickedObjects) {
             for (ITicked ticked : tickedObjects) {
                 if (ticked.shouldTick(ticks.get())) {
-                    e.queue(() -> {
+                    S.async(() -> {
                         try {
                             ticked.tick();
                         } catch (Exception ex) {
                             Log.warn("Failed to tick object: %s", ex, ticked.getId());
                         }
-                    });
+                    }, 0);
                 }
             }
         }

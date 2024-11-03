@@ -29,7 +29,7 @@ public class S {
 
     public static void async(Runnable runnable) {
         try {
-            Bukkit.getScheduler().runTaskAsynchronously(DECENT_HOLOGRAMS.getPlugin(), runnable);
+            Bukkit.getScheduler().runTask(DECENT_HOLOGRAMS.getPlugin(), runnable);
         } catch (IllegalPluginAccessException e) {
             DExecutor.execute(runnable);
         }
@@ -37,18 +37,18 @@ public class S {
 
     public static void async(Runnable runnable, long delay) {
         try {
-            Bukkit.getScheduler().runTaskLaterAsynchronously(DECENT_HOLOGRAMS.getPlugin(), runnable, delay);
+            Bukkit.getScheduler().runTaskLater(DECENT_HOLOGRAMS.getPlugin(), runnable, delay);
         } catch (IllegalPluginAccessException e) {
             DExecutor.execute(runnable);
         }
     }
 
     public static BukkitTask asyncTask(Runnable runnable, long interval) {
-        return Bukkit.getScheduler().runTaskTimerAsynchronously(DECENT_HOLOGRAMS.getPlugin(), runnable, 0, interval);
+        return Bukkit.getScheduler().runTaskTimer(DECENT_HOLOGRAMS.getPlugin(), runnable, 0, interval);
     }
 
     public static BukkitTask asyncTask(Runnable runnable, long interval, long delay) {
-        return Bukkit.getScheduler().runTaskTimerAsynchronously(DECENT_HOLOGRAMS.getPlugin(), runnable, delay, interval);
+        return Bukkit.getScheduler().runTaskTimer(DECENT_HOLOGRAMS.getPlugin(), runnable, delay, interval);
     }
 
 }

@@ -21,3 +21,6 @@ ehthumbs_vista.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
 *.lnk
+
+# Ignore Gradle project-specific cache directory
+.gradle
